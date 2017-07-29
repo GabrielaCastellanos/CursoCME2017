@@ -34,10 +34,11 @@ El desequilibrio de Hardy-Weinberg indica que alguna fuerza evolutiva está actu
 ## Para estimar el coeficiente de endogamia por población
 ```
 b <- basic.stats(a)
-Fis.locus <- b$Fis
-Fis.LA <- mean(Fis.locus[,1])
-Fis.LS <- mean(Fis.locus[,2])
-Fis.AT <- mean(Fis.locus[,3])
+Ho.locus <- b$Ho
+Hs.locus <- b$Hs
+Fis.LA <- 1-(mean(Ho.locus[,1])/mean(Hs.locus[,1]))
+Fis.LS <- 1-(mean(Ho.locus[,2])/mean(Hs.locus[,2]))
+Fis.AT <- 1-(mean(Ho.locus[,3])/mean(Hs.locus[,3]))
 ``` 
 Escribimos los promedios por población en un sólo objeto
 ```
